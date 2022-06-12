@@ -1,10 +1,9 @@
 # Users_CRUD_with_FLASK
  Backend Homework - Create a back-end application that implements all of the CRUD features for a "User" account.
  
- 
- =======================
-Assignment
-=======================
+
+# Assignment
+
 
 Create a back-end application that implements all of the CRUD features for a "User" account.
 
@@ -47,9 +46,9 @@ CREATE TABLE IF NOT EXISTS Users (
    
    
    
-====================
-Extra Credit
-====================
+
+# Extra Credit
+
 
 Implement a /user/search/<search_term>   that will search first_name, last_name, city, state, email. If the any of the fields match the search_term (LIKE '%search_term%'), then return them. This will be a dictionary with on element called "results" that is a list of search results.
 
