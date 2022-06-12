@@ -2,7 +2,7 @@
  Backend Homework - Create a back-end application that implements all of the CRUD features for a "User" account.
  
  
-Assignment
+# Assignment
 Create a back-end application that implements all of the CRUD features for a "User" account.
 
 Test your API's with Postman.
@@ -25,7 +25,7 @@ If there are no users in the database, this should return a JSON of an empty lis
 
 
 
-Extra Credit
+# Extra Credit
 Implement a /user/search/<search_term> that will search first_name, last_name, city, state, email. If the any of the fields match the search_term (LIKE '%search_term%'), then return them. This will be a dictionary with on element called "results" that is a list of search results.
 
 Make it case-insensitive.
