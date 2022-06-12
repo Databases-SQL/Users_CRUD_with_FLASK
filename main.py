@@ -8,6 +8,8 @@ app = Flask(__name__)
 conn = psycopg2.connect("dbname='usersource' user='silvanakoharian' host='localhost'")
 cursor = conn.cursor()
 
+
+# add user
 @app.route('/user/add', methods=['POST'])
 def add_user():
   form = request.form
@@ -31,6 +33,9 @@ def add_user():
 
 
 
+
+
+# update user's information
 @app.route('/user/edit/<user_id>', methods=['PUT'])
 def edit_user(user_id, first_name = None, last_name = None, email = None, password = None, city= None, state = None, active = None):
     cursor.execute('SELECT user_id,first_name, last_name, email, password, city, state, active FROM Users WHERE user_id = %s', (user_id,))
@@ -91,7 +96,7 @@ def edit_user(user_id, first_name = None, last_name = None, email = None, passwo
 
 
 
-
+# get user by id
 @app.route('/user/<user_id>', methods=['GET'])
 def get_user_by_id(user_id):
   cursor.execute('SELECT user_id,first_name, last_name, email, password, city, state, active FROM Users WHERE user_id = %s', (user_id,))
@@ -116,6 +121,9 @@ def get_user_by_id(user_id):
 
 
 
+
+
+# get all users
 @app.route('/user/list', methods=['GET'])
 def get_all_users():
     cursor.execute('SELECT user_id,first_name, last_name, email, password, city, state, active FROM Users')
@@ -142,7 +150,11 @@ def get_all_users():
 
     return jsonify(output_dictionary), 200
 
-  
+
+
+
+
+# Delete an user
 @app.route('/user/delete/<user_id>', methods=['DELETE'])
 def user_delete(user_id):
   cursor.execute('SELECT user_id,first_name, last_name, email, password, city, state, active FROM Users WHERE user_id = %s', (user_id,))
@@ -155,6 +167,10 @@ def user_delete(user_id):
   return jsonify('User not found'), 404
   
 
+
+
+
+# Search for a key word in user's data
 @app.route('/user/search/<search_term>', methods=['GET'])
 def user_search(search_term):
   search_term = search_term.lower()
