@@ -162,7 +162,7 @@ def get_all_users():
 
     list_of_users = []
 
-    cursor.execute('''SELECT u.user_id, u.first_name, u.last_name, u.email, u.phone, u.city, u.state, u.active,
+    cursor.execute('''SELECT u.user_id, u.first_name, u.last_name, u.email, u.phone, u.city, u.state, u.org_id, u.active,
                              o.org_id, o.name, o.phone, o.city, o.state, o.active
                       FROM Users  u
                       JOIN Organizations o
