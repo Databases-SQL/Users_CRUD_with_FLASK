@@ -83,8 +83,11 @@ def edit_user(user_id, first_name = None, last_name = None, email = None, passwo
 
 
         set_clause_string = ' , '.join(set_clauses)
-
-        query_str = f'UPDATE Users SET {set_clause_string} WHERE ' + 'user_id = %s'
+        update_values.append(str(user_id))
+        query_str = f'UPDATE Users SET {set_clause_string} WHERE user_id = %s'
+        # set_clauses = "city = %s , state = %s"
+        # update_values = ["Provo", "Utah"]
+        # "UPDATE Users SET city = %s , state = %s WHERE user_id = %s"
         print (query_str)
         print(set_clause_string)
         print(update_values)
